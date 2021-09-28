@@ -5,7 +5,7 @@ from tkinter import *
 root = Tk()
 root.title("editable HTML Reader 9000")
 
-# < --- function to get text from text input, add it to HTML template, and save it in output folder
+# < --- function to get text from textarea input, add it to HTML template, and save the resulting HTMl file in output folder ---  >
 
 def runprogram():
 
@@ -44,7 +44,7 @@ def runprogram():
 		my_string_var.set(stringmessage)
 
 
-	# add to HTML
+	# add to HTML and save in output folder
 	from bs4 import BeautifulSoup
 	import pathlib
 
@@ -92,7 +92,7 @@ def runprogram():
 	filenamearea.delete(0, END)
 
 
-# < --- basic tkinter GUI
+# < --- very basic tkinter GUI ---  >
 
 my_string_var = StringVar()
 my_string_var.set("Paste your copypasta here")
