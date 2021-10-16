@@ -1,6 +1,6 @@
 
 body {
-  background-color: #ffdcb9 !important;
+  background-color: #ffdcb9;
 }
 
 #title-header {
@@ -12,4 +12,26 @@ body {
 [contenteditable="true"] {
    border:none;
    outline:0px solid transparent;;
+}
+
+.button-div {
+	margin: auto;
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+	padding-bottom: 30px;
+}
+
+.big_table {
+	margin: auto;
+	width: 50%;
+	border: 3px solid black;
+	padding: 10px;
+	text-align: center;
+	background-color: white;
+}
+
+.container-main {
+	font-size: 15px;
+	text-align: center;
 }

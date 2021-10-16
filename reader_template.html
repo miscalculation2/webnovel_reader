@@ -12,22 +12,92 @@
 
   </head>
   <body>
-
 	<div class="container-md">
-		<h1 id="title-header" contenteditable="true">Lorum thingie blabsi</h1>
+		<h1 id="title-header" contenteditable="true">Text Renderer 9000</h1>
 	</div>
-	<div>
-		<button type="submit" onclick="">Download!</button>
+	<div class="big_table">
+	<table width="100%">
+    <tr>
+        <td><b>Font colour</b></td>
+        <td><b>Font size</b></td>
+        <td><b>Background colour</b></td>
+	</tr>
+    <tr>
+        <td>
+			<form action="/action_page.php">
+			  <select class="fontcolour" onchange="changeFontColour(this)">
+				<option value="#000000">Black</option>
+				<option value="#f2f2f2">White</option>
+				<option value="#ff1a1a">Red</option>
+				<option value="#0099ff">Blue</option>
+				<option value="#00e600">Green</option>
+			  </select>
+			</form>
+		</td>
+        <td>
+			<input type="button" value="+" onclick="increaseFontSizeBy1px()">
+			<input type="button" value="-" onclick="decreaseFontSizeBy1px()">
+		</td>
+        <td>
+			<form action="/action_page.php">
+			  <select class="bgcolour" onchange="changeBgColour(this)">
+				<option value="#000000">Black</option>
+				<option value="#f2f2f2">White</option>
+				<option value="#ff1a1a">Red</option>
+				<option value="#0099ff">Blue</option>
+				<option value="#00e600">Green</option>
+			  </select>
+			</form>
+		</td>
+	</tr>
+	</table>
 	</div>
-	<div class="container" contenteditable="true">
-		<p id="main">
+	
+	<div class="button-div">
+		<button a href="/reader_template.html" download="filename">Download (doesn't work, just press ctrl+S)</button>
+	</div>
+
+	<div class="container-main" contenteditable="true" id="main">
+		<p>
+			placeholder-text
 		</p>
 	</div>
 	
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<script>
+    function increaseFontSizeBy1px() {
+        var id = document.getElementById('main');
+        var style = window.getComputedStyle(id, null).getPropertyValue('font-size');
+        var currentSize = parseInt(style);
+        currentSize++;
+		var fontnumber = currentSize.toString() + 'px'
+        document.getElementById('main').style.fontSize = fontnumber;
+    }
+	function decreaseFontSizeBy1px() {
+        var id = document.getElementById('main');
+        var style = window.getComputedStyle(id, null).getPropertyValue('font-size');
+        var currentSize = parseInt(style);
+        currentSize--;
+		var fontnumber = currentSize.toString() + 'px'
+        document.getElementById('main').style.fontSize = fontnumber;
+    }
+
+	function changeBgColour(getColor) {
+		let bgcolour = getColor.value;
+		///document.getElementById('main').innerHTML = bgcolour;
+		document.body.style.backgroundColor = bgcolour.toString();
+	}
 	
+	function changeFontColour(getColor) {
+		let fontcolour = getColor.value;
+		///document.getElementById('main').innerHTML = fontcolour;
+		///document.body.style.backgroundColor = fontcolour.toString();
+		document.getElementById('main').style.color = fontcolour;
+		document.getElementById('title-header').style.color = fontcolour;
+	}
+
 	</script>
 	</script>
   </body>
